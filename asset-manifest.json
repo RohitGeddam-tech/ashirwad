@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/ashirwad/static/css/main.71dfa8ab.css",
-    "main.js": "/ashirwad/static/js/main.8f835f52.js",
+    "main.css": "/ashirwad/static/css/main.ab99f7fc.css",
+    "main.js": "/ashirwad/static/js/main.b300cc3e.js",
     "static/media/deskcover.jpg": "/ashirwad/static/media/deskcover.32777664777c07425422.jpg",
     "static/media/mobcover.png": "/ashirwad/static/media/mobcover.1cc7a2dea136f715297d.png",
     "static/media/offers.jpg": "/ashirwad/static/media/offers.0439b60a1dfb93a533e3.jpg",
@@ -27,11 +27,11 @@
     "static/media/fb.svg": "/ashirwad/static/media/fb.cffc8dd1311991cee1fbffee6e6c21ff.svg",
     "static/media/arrowRight.svg": "/ashirwad/static/media/arrowRight.11762219b18883c64db422a49c62fff0.svg",
     "static/media/arrowLeft.svg": "/ashirwad/static/media/arrowLeft.bd9bae6b2aeb2671cff15e859edd10c1.svg",
-    "main.71dfa8ab.css.map": "/ashirwad/static/css/main.71dfa8ab.css.map",
-    "main.8f835f52.js.map": "/ashirwad/static/js/main.8f835f52.js.map"
+    "main.ab99f7fc.css.map": "/ashirwad/static/css/main.ab99f7fc.css.map",
+    "main.b300cc3e.js.map": "/ashirwad/static/js/main.b300cc3e.js.map"
   },
   "entrypoints": [
-    "static/css/main.71dfa8ab.css",
-    "static/js/main.8f835f52.js"
+    "static/css/main.ab99f7fc.css",
+    "static/js/main.b300cc3e.js"
   ]
 }
