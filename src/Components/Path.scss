@@ -1,0 +1,74 @@
+.path {
+  width: 100%;
+  padding-bottom: 30px;
+  .pathContainer {
+    width: 93%;
+    margin: auto;
+    .pathHeading {
+      display: flex;
+      padding: 25px 0;
+      align-items: center;
+      justify-content: center;
+      h1 {
+        margin: 0;
+        font-family: "Montserrat";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 40px;
+        line-height: 37px;
+        text-transform: uppercase;
+        color: #092f57;
+      }
+    }
+    .pathData {
+      width: 90%;
+      display: flex;
+      flex-flow: row wrap;
+      margin: auto;
+      justify-content: space-between;
+      .dataBox {
+        width: 30%;
+        padding: 15px 0;
+        img {
+          width: 100%;
+        }
+        h1 {
+          font-family: "Montserrat";
+          font-style: normal;
+          font-weight: bold;
+          font-size: 24px;
+          line-height: 170.6%;
+          color: #092f57;
+          margin-top: 10px;
+          text-align: start;
+        }
+        p {
+          font-family: "Montserrat";
+          font-style: normal;
+          font-weight: 500;
+          font-size: 18px;
+          line-height: 170.6%;
+          color: #979797;
+        }
+      }
+    }
+    @media (max-width: 800px) {
+      .pathHeading {
+        justify-content: flex-start;
+        h1 {
+          font-size: 35px;
+          line-height: 170.6%;
+          text-align: start;
+        }
+      }
+      .pathData{
+        width: 100%;
+        flex-flow: column;
+        .dataBox{
+          width: 100%;
+          padding: 25px 0;
+        }
+      }
+    }
+  }
+}

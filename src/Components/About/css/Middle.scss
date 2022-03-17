@@ -1,0 +1,144 @@
+.middle {
+  width: 100%;
+  background-color: #092f57;
+  padding: 50px 0;
+  .middleContainer {
+    width: 85%;
+    margin: auto;
+    display: flex;
+    .left {
+      width: 70%;
+      padding: 20px 0;
+      .middleHeading {
+        display: flex;
+        align-items: center;
+        margin-bottom: 40px;
+        h1 {
+          margin: 0;
+          font-family: "Montserrat";
+          font-style: normal;
+          font-weight: 800;
+          font-size: 30px;
+          line-height: 37px;
+          text-transform: uppercase;
+          color: #fff;
+        }
+        img {
+          width: auto;
+          height: 1px;
+          margin-left: 15px;
+        }
+      }
+      p {
+        font-family: "Montserrat";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 170.6%;
+        width: 95%;
+        text-align: start;
+        color: #ffffff;
+      }
+      .para {
+        display: none;
+      }
+    }
+    .mobDown {
+      display: none;
+      p {
+        font-family: "Montserrat";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 170.6%;
+        width: 95%;
+        text-align: start;
+        color: #ffffff;
+      }
+      .para {
+        font-family: "Montserrat";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 170.6%;
+        text-align: center;
+        text-transform: uppercase;
+        color: #ffffff;
+        padding-top: 20px;
+      }
+    }
+    .right {
+      width: 30%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-flow: column;
+      img {
+        width: 75%;
+      }
+      h2 {
+        font-family: "Montserrat";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 170.6%;
+        text-align: center;
+        text-transform: uppercase;
+        color: #ffffff;
+      }
+    }
+    @media (max-width: 1000px) {
+      .left {
+        width: 60%;
+      }
+      .right {
+        width: 40%;
+      }
+    }
+    @media (max-width: 900px) {
+      flex-flow: column;
+      .left {
+        width: 100%;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .middleHeading{
+          margin: 0;
+        }
+        img{
+          display: none;
+        }
+        p,.para{
+          display: none;
+        }
+      }
+      .right {
+        width: 100%;
+        img{
+          width: 450px;
+          padding: 30px 0 20px;
+        }
+        h2{
+          display: none;
+        }
+      }
+      .mobDown{
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        justify-content: center;
+        p{
+          text-align: center;
+        }
+      }
+    }
+    @media (max-width: 500px) {
+      .right{
+        img{
+          width: 100%;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,67 @@
+.foot {
+  width: 100%;
+  padding: 50px 0;
+  .bottomContainer {
+    width: 85%;
+    margin: auto;
+    .slick-slider {
+      .slick-slide {
+        // padding: 0 5px;
+        width: max-content;
+        .imag {
+          width: 96% !important;
+          margin: 0 auto;
+          img {
+            width: 100%;
+            padding: 0 !important;
+          }
+        }
+        // img{
+        //   padding: 0 15px;
+        // }
+      }
+    }
+    .bottomHeading {
+      display: flex;
+      align-items: center;
+      margin-bottom: 30px;
+      h1 {
+        margin: 0;
+        font-family: "Montserrat";
+        font-style: normal;
+        font-weight: 800;
+        font-size: 30px;
+        line-height: 37px;
+        text-transform: uppercase;
+        color: #092f57;
+      }
+      img {
+        width: auto;
+        height: 1px;
+        margin-left: 15px;
+      }
+      @media(max-width:600px){
+        img{
+          display: none;
+        }
+      }
+    }
+    .slider {
+      width: 98%;
+      display: flex;
+      .imgOverflow {
+        overflow-x: scroll;
+        display: flex;
+        margin: auto;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        &::-webkit-scrollbar {
+          display: none;
+        }
+        img {
+          margin: 15px;
+        }
+      }
+    }
+  }
+}

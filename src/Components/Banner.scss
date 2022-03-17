@@ -1,0 +1,110 @@
+.bannerSlider {
+  padding-bottom: 0;
+  position: relative;
+  .slickNext {
+    right: 10px;
+  }
+  .slickPrev {
+    left: 10px;
+    z-index: 1;
+  }
+  @media (max-width: 920px) {
+    .slickNext,
+    .slickPrev {
+      display: none !important;
+    }
+  }
+  .slick-slider {
+    .slick-dots {
+      bottom: 30px;
+      li button:before {
+        font-size: 10px;
+        color: #092f57;
+      }
+      li.slick-active button:before {
+        color: #092f57;
+        opacity: 1;
+      }
+    }
+  }
+  .slick-slide {
+    // height: 570px !important;
+    div {
+      &:focus {
+        outline: none !important;
+      }
+    }
+    img {
+      display: initial !important;
+    }
+    .banner {
+      width: 100%;
+      position: relative;
+      img {
+        width: 100%;
+        height: 550px !important;
+      }
+      .bannerBox {
+        position: absolute;
+        width: 700px;
+        left: 6%;
+        top: 14%;
+        display: flex;
+        flex-flow: column;
+        align-items: center !important;
+        justify-content: center;
+        // height: 550px;
+        background: rgba(255, 255, 255, 0.8);
+        h1 {
+          margin-bottom: 27px;
+          padding-top: 40px;
+        }
+        p {
+          margin: 0;
+          width: 75%;
+          font-size: 20px;
+          line-height: 34px;
+          color: #092f57;
+        }
+        .bottom {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          padding: 35px 0 45px;
+          flex-flow: row;
+          margin-top: 0;
+        }
+      }
+    }
+    @media (max-width: 960px) {
+      .banner {
+        .bannerBox {
+          width: 580px;
+          top: 35%;
+          left: 50%;
+          transform: translate(-50%, -33%);
+        }
+      }
+    }
+    @media (max-width: 600px) {
+      .banner {
+        .bannerBox {
+          width: 90%;
+          h1 {
+            padding: 20px 0;
+            margin-bottom: 0;
+          }
+          p {
+            font-size: 15px;
+            width: 80%;
+            margin: 0 auto;
+            padding-bottom: 20px;
+          }
+          .bottom{
+            padding: 20px 0 30px;
+          }
+        }
+      }
+    }
+  }
+}
