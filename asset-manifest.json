@@ -1,0 +1,37 @@
+{
+  "files": {
+    "main.css": "/ashirwad/static/css/main.71dfa8ab.css",
+    "main.js": "/ashirwad/static/js/main.8f835f52.js",
+    "static/media/deskcover.jpg": "/ashirwad/static/media/deskcover.32777664777c07425422.jpg",
+    "static/media/mobcover.png": "/ashirwad/static/media/mobcover.1cc7a2dea136f715297d.png",
+    "static/media/offers.jpg": "/ashirwad/static/media/offers.0439b60a1dfb93a533e3.jpg",
+    "static/media/Image4.jpg": "/ashirwad/static/media/Image4.b0a0b8d2e02321b29398.jpg",
+    "static/media/Image5.jpg": "/ashirwad/static/media/Image5.e1425276935ead31cbed.jpg",
+    "static/media/doc.jpg": "/ashirwad/static/media/doc.940e66c56743c806b98e.jpg",
+    "static/media/Image.jpg": "/ashirwad/static/media/Image.d808c803760722ea68f4.jpg",
+    "static/media/lung.svg": "/ashirwad/static/media/lung.4c5bc9b7ee33e93d6dcaa271f048373b.svg",
+    "static/media/Image3.jpg": "/ashirwad/static/media/Image3.75ff378652b82572cbce.jpg",
+    "static/media/Image2.jpg": "/ashirwad/static/media/Image2.659ad9fd2277ef8b1d9e.jpg",
+    "static/media/Image1.jpg": "/ashirwad/static/media/Image1.d6a9d7d9f14d345c9e3c.jpg",
+    "static/media/copy.svg": "/ashirwad/static/media/copy.e82d5d3c9aff005005484bf35c7f2375.svg",
+    "static/media/vision.jpg": "/ashirwad/static/media/vision.ece7b1ef75eab2c3eac1.jpg",
+    "static/media/flag.jpg": "/ashirwad/static/media/flag.f200c4a4a033f91aeaca.jpg",
+    "static/media/instagram.svg": "/ashirwad/static/media/instagram.5a86ce7bb44ebd594f55457c8dbccdd7.svg",
+    "static/media/logo.svg": "/ashirwad/static/media/logo.ccd99cbf036a30e9118a5a1769efa0b8.svg",
+    "static/media/slick.svg": "/ashirwad/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/ashirwad/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/ashirwad/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/ashirwad/static/media/slick.295183786cd8a1389865.woff",
+    "static/media/Linkedin.svg": "/ashirwad/static/media/Linkedin.90d11229b70137e99cea8cb8b7610396.svg",
+    "index.html": "/ashirwad/index.html",
+    "static/media/fb.svg": "/ashirwad/static/media/fb.cffc8dd1311991cee1fbffee6e6c21ff.svg",
+    "static/media/arrowRight.svg": "/ashirwad/static/media/arrowRight.11762219b18883c64db422a49c62fff0.svg",
+    "static/media/arrowLeft.svg": "/ashirwad/static/media/arrowLeft.bd9bae6b2aeb2671cff15e859edd10c1.svg",
+    "main.71dfa8ab.css.map": "/ashirwad/static/css/main.71dfa8ab.css.map",
+    "main.8f835f52.js.map": "/ashirwad/static/js/main.8f835f52.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.71dfa8ab.css",
+    "static/js/main.8f835f52.js"
+  ]
+}
