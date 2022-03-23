@@ -14,7 +14,7 @@ const Popup = ({ open, setOpen, offerName }) => {
   const [nameInvalid, setNameInvalid] = useState(false);
   const [phone, setPhone] = useState("");
   const [phoneInvalid, setPhoneInvalid] = useState(false);
-  const [selected, setSelected] = useState("");
+  const [selected, setSelected] = useState(offerName);
   const [selectInvalid, setSelectInvalid] = useState(false);
   const [selectData, setSelectData] = useState([]);
   const [selectedArray, setSelectedArray] = useState([]);
@@ -24,12 +24,21 @@ const Popup = ({ open, setOpen, offerName }) => {
   const [btnLoading, setBtnLoading] = useState(false);
   // const [offers, setOffers] = useState(false);
 
-  React.useState(() => {
-    if (offerName !== "") {
-      setSelected(offerName);
-      console.log(offerName);
-    }
-  });
+  // React.useState(() => {
+  //   if (
+  //     localStorage.getItem("offer") !== null &&
+  //     localStorage.getItem("offer") !== ""
+  //   ) {
+  //     const offerValue = localStorage.getItem("offer");
+  //     console.log(offerValue);
+  //     setSelected(offerValue);
+  //   }
+  //   // localStorage.clear();
+  // }, [selectedArray, selected, setSelectedArray]);
+
+  React.useEffect(() => {
+    console.log("value: ", selected);
+  }, [selected]);
 
   const handleChange = (e) => {
     // setInvalid(false);
@@ -115,7 +124,7 @@ const Popup = ({ open, setOpen, offerName }) => {
           label: doc.attributes.name,
         }))
       );
-      // setSelected(offerName);
+      setSelected(offerName);
       // console.log(offerName);
     }
   }, [roomArray, setRoomArray]);
