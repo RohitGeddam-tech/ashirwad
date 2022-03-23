@@ -1,21 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import line from "./Photos/Line3.jpg";
-import doc from "./Photos/doc.jpg";
+// import doc from "./Photos/doc.jpg";
 import "./css/Middle.scss";
-import axios from "axios";
+// import axios from "axios";
 
-const Middle = () => {
-  const [state, setState] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get(`${process.env.REACT_APP_PUBLIC_URL}doctors-message?populate=*`)
-      .then((res) => {
-        // console.log(res.data.data);
-        setState(res.data.data);
-      })
-      .catch((err) => console.warn(err));
-  }, []);
+const Middle = ({ data }) => {
+  // const [state, setState] = useState([]);
+  const state = data[0];
   return (
     <div className="middle">
       {Object.keys(state).length > 0 ? (

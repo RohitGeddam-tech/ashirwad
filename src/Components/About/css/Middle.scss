@@ -6,6 +6,9 @@
     width: 85%;
     margin: auto;
     display: flex;
+    @media(min-width:1440px){
+      width: 1185px !important;
+    }
     .left {
       width: 70%;
       padding: 20px 0;

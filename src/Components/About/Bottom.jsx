@@ -1,24 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import line from "./Photos/Line2.jpg";
 import "./css/Bottom.scss";
-import last from "./Photos/lastpage.jpg";
+// import last from "./Photos/lastpage.jpg";
 import windowSize from "../../layout/useWindowSize";
 import CustomSlider from "./Custom";
-import axios from "axios";
+// import axios from "axios";
 
-const Bottom = () => {
+const Bottom = ({ data }) => {
   const [width] = windowSize();
-  const [state, setState] = useState([]);
+  // const [state, setState] = useState([]);
+  const state = data[0];
 
-  useEffect(() => {
-    axios
-      .get(`${process.env.REACT_APP_PUBLIC_URL}certificates?populate=*`)
-      .then((res) => {
-        // console.log(res.data.data);
-        setState(res.data.data);
-      })
-      .catch((err) => console.warn(err));
-  }, []);
   return (
     <div className="foot">
       <div className="bottomContainer">

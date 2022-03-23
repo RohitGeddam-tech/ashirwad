@@ -20,7 +20,7 @@ const NewHeader = () => {
           <div className="header">
             <nav className="container-fullnav">
               <div className="nav-image">
-                <NavHashLink to="/#top" onClick={() => setActive(false)}>
+                <NavHashLink to="/#" smooth onClick={() => setActive(false)}>
                   <img src={logo} alt="logo" />
                   {/* <h2 className="logo">SL Technologies</h2> */}
                 </NavHashLink>
@@ -53,7 +53,7 @@ const NewHeader = () => {
             <div className="container">
               <li>
                 <NavHashLink
-                  to="/About#top"
+                  to="/Aboutus"
                   className={`navfade ${
                     window.location.href.includes("About") ? "active" : ""
                   }`}
@@ -64,7 +64,7 @@ const NewHeader = () => {
               </li>
               <li>
                 <NavHashLink
-                  to="/Path#top"
+                  to="/Pathological_Equipments"
                   className={`navfade ${
                     window.location.href.includes("Path") ? "active" : ""
                   }`}
@@ -101,13 +101,13 @@ const NewHeader = () => {
       ) : (
         <>
           <div className="container">
-            <NavHashLink to="/#top" className="logo">
+            <NavHashLink to="/#" smooth className="logo">
               <img src={logo} alt="logo" />
               {/* <h2 className="logo">SL Technologies</h2> */}
             </NavHashLink>
             <div className="navDetails">
               <NavHashLink
-                to="/About#top"
+                to="/Aboutus"
                 // activeStyle={{ color: "#FFDD28", fontWeight: "bold" }}
                 // className="navfade"
                 className={`navfade ${
@@ -117,11 +117,11 @@ const NewHeader = () => {
                 About Us
               </NavHashLink>
               <NavHashLink
-                to="/Path#top"
+                to="/Pathological_Equipments"
                 // activeStyle={{ color: "#FFDD28", fontWeight: "bold" }}
                 // className="navfade"
                 className={`navfade ${
-                  window.location.href.includes("products") ? "active" : ""
+                  window.location.href.includes("Path") ? "active" : ""
                 }`}
               >
                 Pathological Equipments
@@ -147,7 +147,7 @@ const NewHeader = () => {
           </div>
         </>
       )}
-      <Popup open={open} setOpen={setOpen} />
+      <Popup open={open} setOpen={setOpen} offerName={""} />
     </div>
   );
 };

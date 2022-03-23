@@ -7,6 +7,9 @@
   .aboutContainer {
     width: 93%;
     margin: 0 auto;
+    @media(min-width:1440px){
+      width: 1185px !important;
+    }
     // margin-top: 70px;
     .aboutHeading {
       display: flex;
@@ -35,8 +38,12 @@
         width: 48%;
         height: 90%;
         display: flex;
+        justify-content: center;
         flex-flow: column wrap;
         align-items: center;
+        img{
+          margin-top: -10px;
+        }
         .boxtitle {
           font-family: "Montserrat";
           font-weight: 800;

@@ -1,38 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 // import { NavHashLink } from "react-router-hash-link";
 import useWindowSize from "../layout/useWindowSize";
-import banner from "../Photos/deskcover.jpg";
-import mob from "../Photos/mobcover.png";
+// import banner from "../Photos/deskcover.jpg";
+// import mob from "../Photos/mobcover.png";
 import "./Banner.scss";
 import CustomSlider from "./Slider";
-import axios from "axios";
+// import axios from "axios";
 import Popup from "./Popup";
-
-const bannerDetails1 = [
-  {
-    image: banner,
-    title: "Banner Title",
-    para: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet.",
-  },
-];
-
-const bannerDetails = [
-  {
-    image: mob,
-    title: "Banner Title",
-    para: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet.",
-  },
-  {
-    image: mob,
-    title: "Banner Title",
-    para: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet.",
-  },
-  {
-    image: mob,
-    title: "Banner Title",
-    para: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet.",
-  },
-];
 
 const Banner1 = ({ image, attributes }) => {
   const [open, setOpen] = useState(false);
@@ -48,24 +22,25 @@ const Banner1 = ({ image, attributes }) => {
           </button>
         </div>
       </div>
-      <Popup open={open} setOpen={setOpen} />
+      <Popup open={open} setOpen={setOpen} offerName={""} />
     </div>
   );
 };
 
-const BannerSlider = () => {
+const BannerSlider = ({ data }) => {
   const [width] = useWindowSize();
-  const [state, setState] = useState([]);
+  // const [state, setState] = useState([...data]);
+  const state = data[0];
 
-  useEffect(() => {
-    axios
-      .get(`${process.env.REACT_APP_PUBLIC_URL}banner-components?populate=*`)
-      .then((res) => {
-        // console.log(res.data.data);
-        setState(res.data.data);
-      })
-      .catch((err) => console.warn(err));
-  }, []);
+  // useEffect(async () => {
+  //   await axios
+  //     .get(`${process.env.REACT_APP_PUBLIC_URL}banner-components?populate=*`)
+  //     .then((res) => {
+  //       // console.log(res.data.data);
+  //       setState(res.data.data);
+  //     })
+  //     .catch((err) => console.warn(err));
+  // }, []);
 
   return (
     <div className="bannerSlider">

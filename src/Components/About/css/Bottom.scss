@@ -4,6 +4,9 @@
   .bottomContainer {
     width: 85%;
     margin: auto;
+    @media(min-width:1440px){
+      width: 1185px !important;
+    }
     .slick-slider {
       .slick-slide {
         // padding: 0 5px;

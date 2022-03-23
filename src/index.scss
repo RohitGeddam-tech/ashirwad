@@ -5,12 +5,86 @@ body {
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
   overflow-x: hidden;
+  scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  .load {
+    width: 100%;
+    height: calc(100vh - 10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .loader {
+      border: 6px solid #f3f3f3;
+      border-top: 6px solid #092f57;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      animation: spin 2s ease infinite;
+    }
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
 
   .container {
     width: 92%;
     margin: 0 auto;
+    @media (min-width: 1440px) {
+      width: 1185px !important;
+    }
+  }
+
+  .error {
+    width: 100%;
+    height: calc(100vh - 10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    h1 {
+      text-transform: uppercase;
+      margin: 0 0 12px 0;
+    }
+    p {
+      padding: 0px 0;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      button {
+        outline: none;
+        border: none;
+        text-decoration: underline;
+        text-decoration-color: #092f57;
+        font-family: "Montserrat", sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 30px;
+        color: #092f57;
+        background-color: transparent;
+        cursor: pointer;
+      }
+      a {
+        padding-left: 6px;
+        font-family: "Montserrat", sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 30px;
+        color: #092f57;
+        text-decoration: underline;
+        text-decoration-color: #092f57;
+      }
+    }
   }
 
   h1,
@@ -695,8 +769,8 @@ body {
           background-color: #092f57;
           color: #fff;
         }
-        &:disabled{
-          opacity: .75;
+        &:disabled {
+          opacity: 0.75;
           cursor: not-allowed;
         }
       }

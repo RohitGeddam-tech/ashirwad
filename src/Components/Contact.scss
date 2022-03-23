@@ -1,5 +1,12 @@
 .contact {
   // padding: 85px 0 95px;
+  position: relative;
+  #contact{
+    position: absolute;
+    top: -65px;
+    width: 70px;
+    height: 70px;
+  }
   .container {
     padding: 40px 0;
     p {
@@ -14,7 +21,7 @@
       justify-content: space-between;
       padding-top: 40px;
       margin: 0 auto;
-      a {
+      a,.inner {
         width: 310px;
         display: block;
         padding: 0 20px;
@@ -49,7 +56,7 @@
       .contactDetails {
         flex-flow: column;
         padding-top: 25px;
-        a{
+        a,.inner{
           width: 100%;
           padding: 15px 0;
           display: flex;

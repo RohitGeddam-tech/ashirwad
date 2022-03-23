@@ -1,24 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./Service.scss";
 import line from "../Photos/Line3.jpg";
 import lung from "../Photos/lung.svg";
-import axios from "axios";
+// import axios from "axios";
 import CustomSlider from "./CustomSlider";
 
-const Service = () => {
-  const [state, setState] = useState([]);
+const Service = ({ data }) => {
+  const state = data[0];
 
-  useEffect(() => {
-    axios
-      .get(
-        `${process.env.REACT_APP_PUBLIC_URL}services-component?populate=services.image`
-      )
-      .then((res) => {
-        // console.log(res.data.data);
-        setState(res.data.data);
-      })
-      .catch((err) => console.warn(err));
-  }, []);
+  // useEffect(async () => {
+  //   await axios
+  //     .get(
+  //       `${process.env.REACT_APP_PUBLIC_URL}services-component?populate=services.image`
+  //     )
+  //     .then((res) => {
+  //       // console.log(res.data.data);
+  //       setState(res.data.data);
+  //     })
+  //     .catch((err) => console.warn(err));
+  // }, []);
 
   return (
     <div className="service">
@@ -62,7 +62,7 @@ const Service = () => {
           <div className="wrap">
             <CustomSlider>
               {state.attributes.services.map((doc, i) => (
-                <div className="box">
+                <div className="box" key={i}>
                   <img
                     src={`https://api.aashirwadlab.co.in${doc.image.data.attributes.url}`}
                     alt="lungs"

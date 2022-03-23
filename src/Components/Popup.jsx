@@ -5,7 +5,8 @@ import clear from "../Photos/clear.png";
 import { DateTimePicker, MuiPickersUtilsProvider } from "@material-ui/pickers";
 import axios from "axios";
 
-const Popup = ({ open, setOpen }) => {
+const Popup = ({ open, setOpen, offerName }) => {
+  // console.log(offerName);
   const [email, setEmail] = useState("");
   const [emailInvalid, setEmailInvalid] = useState(false);
   const [date, setDate] = useState(new Date());
@@ -19,8 +20,16 @@ const Popup = ({ open, setOpen }) => {
   const [selectedArray, setSelectedArray] = useState([]);
   const [roomArray, setRoomArray] = useState([]);
   const [valid, setValid] = useState(false);
+  const [invalid, setInvalid] = useState(false);
   const [btnLoading, setBtnLoading] = useState(false);
-  // const [offers, setOffers] = useState([]);
+  // const [offers, setOffers] = useState(false);
+
+  React.useState(() => {
+    if (offerName !== "") {
+      setSelected(offerName);
+      console.log(offerName);
+    }
+  });
 
   const handleChange = (e) => {
     // setInvalid(false);
@@ -52,6 +61,7 @@ const Popup = ({ open, setOpen }) => {
         break;
     }
     setSelectInvalid(false);
+    setInvalid(false);
   };
 
   const handleSelect = (e) => {
@@ -77,20 +87,24 @@ const Popup = ({ open, setOpen }) => {
       //   "selected: ",
       //   selected
       // );
+      setInvalid(false);
       setValid(true);
       setBtnLoading(true);
     }
   };
 
   React.useEffect(() => {
-    axios
-      .get(`${process.env.REACT_APP_PUBLIC_URL}test-offers?populate=*`)
-      .then((res) => {
-        // console.log(res.data.data);
-        // console.log("seleceetd: ", selected);
-        setRoomArray(res.data.data);
-      })
-      .catch((err) => console.warn(err));
+    async function fetchData() {
+      await axios
+        .get(`${process.env.REACT_APP_PUBLIC_URL}test-offers?populate=*`)
+        .then((res) => {
+          // console.log(res.data.data);
+          // console.log("seleceetd: ", selected);
+          setRoomArray(res.data.data);
+        })
+        .catch((err) => console.warn(err));
+    }
+    fetchData();
   }, []);
 
   React.useEffect(() => {
@@ -101,12 +115,13 @@ const Popup = ({ open, setOpen }) => {
           label: doc.attributes.name,
         }))
       );
+      // setSelected(offerName);
+      // console.log(offerName);
     }
   }, [roomArray, setRoomArray]);
 
   React.useEffect(() => {
     if (selectData.length > 0 && valid) {
-      // console.log(selectData);
       const form = {
         data: {
           name: name,
@@ -132,6 +147,7 @@ const Popup = ({ open, setOpen }) => {
         .catch((err) => {
           console.warn(err);
           setBtnLoading(false);
+          setInvalid(true);
         });
     }
   }, [valid]);
@@ -241,6 +257,7 @@ const Popup = ({ open, setOpen }) => {
                   labelId="demo-simple-select-outlined-label"
                   id="demo-simple-select-outlined"
                   value={selected}
+                  // defaultValue={selected}
                   onChange={handleSelect}
                   className={`${selected !== "" ? "selTop" : ""}`}
                   label="Select offers"
@@ -274,6 +291,7 @@ const Popup = ({ open, setOpen }) => {
               <button type="submit" className="btn" disabled={btnLoading}>
                 Submit
               </button>
+              {invalid ? <p className="error-text">Please try again!</p> : null}
               <h1>OR</h1>
               <p>
                 Call us on:<a href="+919876509876"> +91 98765 09876</a>

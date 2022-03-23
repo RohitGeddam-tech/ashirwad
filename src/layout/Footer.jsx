@@ -12,13 +12,13 @@ const Footer = () => {
     <div className="footer">
       <div className="footerContainer">
         <div className="footerLinks">
-          <NavHashLink to="/Aashirwad/About#top">ABOUT US</NavHashLink>
-          <NavHashLink to="/Aashirwad/Path#top">
+          <NavHashLink to="/Aboutus">ABOUT US</NavHashLink>
+          <NavHashLink to="/Pathological_Equipments">
             PATHOLOGICAL EQUIPMENTS
           </NavHashLink>
           <NavHashLink to="/#contact">CONTACT US</NavHashLink>
-          <NavHashLink to="/">PRIVACY POLICY</NavHashLink>
-          <NavHashLink to="/">TERMS & CONDITIONS</NavHashLink>
+          <p>PRIVACY POLICY</p>
+          <p>TERMS & CONDITIONS</p>
         </div>
         <img loading="lazy" src={line} alt="line" />
         <div className="footerIcons">
@@ -28,7 +28,7 @@ const Footer = () => {
         </div>
         <div className="footerCopy">
           <p>
-            Website by <a href="/#top">Sugarlogger Technologies Pvt. Ltd.</a>
+            Website by <a href="https://tech.sugarlogger.com/">Sugarlogger Technologies Pvt. Ltd.</a>
           </p>
         </div>
         <div className="footerCopy">

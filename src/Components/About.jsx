@@ -1,24 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import useWindowSize from "../layout/useWindowSize";
 import line from "../Photos/Line2.jpg";
-import about from "../Photos/offers.jpg";
+// import about from "../Photos/offers.jpg";
 import "./About.scss";
 import { NavHashLink } from "react-router-hash-link";
-import axios from "axios";
+// import axios from "axios";
 
-const About = () => {
+const About = ({data}) => {
   const [width] = useWindowSize();
-  const [array, setArray] = useState([]);
+  const array = data[0];
 
-  useEffect(() => {
-    axios
-      .get(`${process.env.REACT_APP_PUBLIC_URL}about-us?populate=*`)
-      .then((res) => {
-        // console.log(res.data.data);
-        setArray(res.data.data);
-      })
-      .catch((err) => console.warn(err));
-  }, []);
+  // useEffect(async () => {
+  //   await axios
+  //     .get(`${process.env.REACT_APP_PUBLIC_URL}about-us?populate=*`)
+  //     .then((res) => {
+  //       // console.log(res.data.data);
+  //       setArray(res.data.data);
+  //     })
+  //     .catch((err) => console.warn(err));
+  // }, []);
 
   return (
     <div className="about">
@@ -28,10 +28,13 @@ const About = () => {
             <>
               <div className="container">
                 <h2>{array.attributes.title}</h2>
-                <img src={`https://api.aashirwadlab.co.in${array.attributes.image.data.attributes.url}`} alt="about us" />
+                <img
+                  src={`https://api.aashirwadlab.co.in${array.attributes.image.data.attributes.url}`}
+                  alt="about us"
+                />
                 <p>{array.attributes.description}</p>
                 <div className="bottom">
-                  <NavHashLink to="/About#top" className="btn">
+                  <NavHashLink to="/About" className="btn">
                     Read More
                   </NavHashLink>
                 </div>
@@ -45,7 +48,10 @@ const About = () => {
             <>
               <div className="container">
                 <div className="shade">
-                  <img src={`https://api.aashirwadlab.co.in${array.attributes.image.data.attributes.url}`} alt="about us" />
+                  <img
+                    src={`https://api.aashirwadlab.co.in${array.attributes.image.data.attributes.url}`}
+                    alt="about us"
+                  />
                 </div>
                 <div className="desk">
                   <h2>
@@ -54,7 +60,7 @@ const About = () => {
                   </h2>
                   <p>{array.attributes.description}</p>
                   <div className="bottom">
-                    <NavHashLink to="/About#top" className="btn">
+                    <NavHashLink to="/About" className="btn">
                       Read More
                     </NavHashLink>
                   </div>

@@ -4,9 +4,12 @@
   .pathContainer {
     width: 93%;
     margin: auto;
+    @media(min-width:1440px){
+      width: 1185px !important;
+    }
     .pathHeading {
       display: flex;
-      padding: 25px 0;
+      padding: 45px 0 60px;
       align-items: center;
       justify-content: center;
       h1 {
@@ -55,6 +58,7 @@
     @media (max-width: 800px) {
       .pathHeading {
         justify-content: flex-start;
+        padding: 35px 0;
         h1 {
           font-size: 35px;
           line-height: 170.6%;
