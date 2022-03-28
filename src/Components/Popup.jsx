@@ -1,11 +1,19 @@
 import React, { useState } from "react";
-import { Modal, Select, MenuItem } from "@material-ui/core";
+import {
+  Modal,
+  Select,
+  MenuItem,
+  Checkbox,
+  ListItemText,
+  Input,
+} from "@material-ui/core";
 import DateFnsUtils from "@date-io/date-fns";
 import clear from "../Photos/clear.png";
 import { DateTimePicker, MuiPickersUtilsProvider } from "@material-ui/pickers";
 import axios from "axios";
+import moment from "moment";
 
-const Popup = ({ open, setOpen, offerName }) => {
+const Popup = ({ open, setOpen }) => {
   // console.log(offerName);
   const [email, setEmail] = useState("");
   const [emailInvalid, setEmailInvalid] = useState(false);
@@ -14,7 +22,7 @@ const Popup = ({ open, setOpen, offerName }) => {
   const [nameInvalid, setNameInvalid] = useState(false);
   const [phone, setPhone] = useState("");
   const [phoneInvalid, setPhoneInvalid] = useState(false);
-  const [selected, setSelected] = useState(offerName);
+  const [selected, setSelected] = useState([]);
   const [selectInvalid, setSelectInvalid] = useState(false);
   const [selectData, setSelectData] = useState([]);
   const [selectedArray, setSelectedArray] = useState([]);
@@ -22,23 +30,11 @@ const Popup = ({ open, setOpen, offerName }) => {
   const [valid, setValid] = useState(false);
   const [invalid, setInvalid] = useState(false);
   const [btnLoading, setBtnLoading] = useState(false);
-  // const [offers, setOffers] = useState(false);
+  const [show, setShow] = useState(false);
 
-  // React.useState(() => {
-  //   if (
-  //     localStorage.getItem("offer") !== null &&
-  //     localStorage.getItem("offer") !== ""
-  //   ) {
-  //     const offerValue = localStorage.getItem("offer");
-  //     console.log(offerValue);
-  //     setSelected(offerValue);
-  //   }
-  //   // localStorage.clear();
-  // }, [selectedArray, selected, setSelectedArray]);
-
-  React.useEffect(() => {
-    console.log("value: ", selected);
-  }, [selected]);
+  // React.useEffect(() => {
+  //   console.log("value: ", selected);
+  // }, [selected]);
 
   const handleChange = (e) => {
     // setInvalid(false);
@@ -74,19 +70,20 @@ const Popup = ({ open, setOpen, offerName }) => {
   };
 
   const handleSelect = (e) => {
-    setSelected(e.target.value);
+    setSelectData(e.target.value);
+    setSelectInvalid(false);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (selected !== "") {
-      setSelectData([selected]);
+    if (selected.length > 0) {
       setSelectInvalid(false);
     } else {
-      setSelectData([]);
       setSelectInvalid(true);
     }
-    if (!(nameInvalid || phoneInvalid || emailInvalid || selected === "")) {
+    if (
+      !(nameInvalid || phoneInvalid || emailInvalid || selected.length === 0)
+    ) {
       // console.log(
       //   "data: ",
       //   name,
@@ -124,7 +121,7 @@ const Popup = ({ open, setOpen, offerName }) => {
           label: doc.attributes.name,
         }))
       );
-      setSelected(offerName);
+      // setSelected(offerName);
       // console.log(offerName);
     }
   }, [roomArray, setRoomArray]);
@@ -137,7 +134,7 @@ const Popup = ({ open, setOpen, offerName }) => {
           mobile_number: phone,
           email: email,
           appointment_date: date.toISOString(),
-          test_offers: selectData,
+          test_offers: selected,
         },
       };
       axios
@@ -147,8 +144,9 @@ const Popup = ({ open, setOpen, offerName }) => {
           setName("");
           setEmail("");
           setPhone("");
-          setSelected("");
+          setSelected([]);
           setSelectData([]);
+          setShow(true);
           setOpen(false);
           setValid(false);
           setBtnLoading(false);
@@ -161,6 +159,21 @@ const Popup = ({ open, setOpen, offerName }) => {
     }
   }, [valid]);
 
+  React.useEffect(() => {
+    var common = [];
+    selectedArray.map((doc) => {
+      selectData.map((val) => {
+        // console.log(doc.value === val, doc, val);
+        if (doc.label === val) {
+          // console.log("doc: ", doc.value);
+          common.push(doc.value);
+        }
+      });
+    });
+    // console.log("coomon: ", common);
+    setSelected([...common]);
+  }, [selectData]);
+
   return (
     <>
       <Modal
@@ -170,7 +183,7 @@ const Popup = ({ open, setOpen, offerName }) => {
           setName("");
           setEmail("");
           setPhone("");
-          setSelected("");
+          setSelected([]);
           setSelectData([]);
           setOpen(false);
         }}
@@ -186,7 +199,7 @@ const Popup = ({ open, setOpen, offerName }) => {
                   setName("");
                   setEmail("");
                   setPhone("");
-                  setSelected("");
+                  setSelected([]);
                   setSelectData([]);
                   setOpen(false);
                 }}
@@ -259,21 +272,30 @@ const Popup = ({ open, setOpen, offerName }) => {
             </div>
             {selectedArray.length > 0 ? (
               <div className="select">
-                <label className={`${selected !== "" ? "labTop" : ""}`}>
+                <label className={`${selectData.length > 0 ? "labTop" : ""}`}>
                   Select a Test/Package <span>*</span>
                 </label>
                 <Select
                   labelId="demo-simple-select-outlined-label"
                   id="demo-simple-select-outlined"
-                  value={selected}
-                  // defaultValue={selected}
+                  value={selectData}
+                  multiple
                   onChange={handleSelect}
-                  className={`${selected !== "" ? "selTop" : ""}`}
+                  className={`${selectData.length > 0 ? "selTop" : ""}`}
                   label="Select offers"
+                  input={<Input />}
+                  renderValue={(selected) => selected.join(", ")}
+                  // renderValue={
+                  //   selectData.length > 0
+                  //     ? undefined
+                  //     : () => <em>Placeholder</em>
+                  // }
                 >
                   {selectedArray.map((doc, i) => (
-                    <MenuItem value={doc.value} key={i}>
-                      {doc.label}
+                    <MenuItem value={doc.label} key={i}>
+                      {/* {doc.label} */}
+                      <Checkbox checked={selectData.indexOf(doc.label) > -1} />
+                      <ListItemText primary={doc.label} />
                     </MenuItem>
                   ))}
                 </Select>
@@ -307,6 +329,54 @@ const Popup = ({ open, setOpen, offerName }) => {
               </p>
             </div>
           </form>
+        </div>
+      </Modal>
+      <Modal
+        className="modalPop"
+        open={show}
+        onClose={() => {
+          setShow(false);
+        }}
+      >
+        <div className="popup">
+          <div className="thanks">
+            <img
+              className="img"
+              src={clear}
+              alt="cancel"
+              onClick={() => {
+                setShow(false);
+              }}
+            />
+            <h3>Appointment Booked Successfully.</h3>
+            <p>
+              Your appointment for {moment(date).format("DD MMMM YYYY")} at{" "}
+              {moment(date).format("h:mm a")} has been placed successfully. For
+              more details please call{" "}
+              <a href="tel:+919876509876">+91 98765 09876</a>
+            </p>
+            <div className="bottom">
+              <button
+                className="btn emptyBtn"
+                onClick={() => {
+                  setShow(false);
+                  // window.location.href = "/#top";
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
+              >
+                Back to current page
+              </button>
+              {/* <button
+              className="btn blueBtn"
+              onClick={() => {
+                setShow(false);
+                navigate("/Client", { replace: true });
+              }}
+            >
+              View Our Portfolio
+            </button> */}
+            </div>
+          </div>
         </div>
       </Modal>
     </>

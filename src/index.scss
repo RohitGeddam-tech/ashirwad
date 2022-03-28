@@ -426,6 +426,9 @@ body {
     }
   }
 }
+.MuiSvgIcon-root {
+  fill: #092f57 !important;
+}
 
 .popup {
   // max-width: 700px;
@@ -453,6 +456,138 @@ body {
   }
   @media (max-width: 355px) {
     padding: 15px !important;
+  }
+  .thanks {
+    width: 400px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 0 -10px;
+    img {
+      position: absolute;
+      top: -15px;
+      right: -10px;
+      cursor: pointer;
+    }
+    h3 {
+      font-style: normal;
+      font-weight: 800;
+      font-size: 24px;
+      line-height: 30px;
+      text-align: center;
+      color: #092f57;
+      margin: 0;
+      padding-bottom: 15px;
+    }
+    p {
+      text-align: center;
+    }
+    .bottom {
+      padding-top: 20px;
+    }
+    @media (max-width: 730px) {
+      img {
+        right: 0;
+        top: -22.5px;
+      }
+    }
+    @media (max-width: 565px) {
+      img {
+        top: -15px;
+        right: -10px;
+      }
+    }
+    @media (max-width: 455px) {
+      width: 300px;
+    }
+    @media (max-width: 330px) {
+      width: 270px;
+    }
+  }
+  &.offerModal {
+    max-width: 660px;
+    max-height: 430px;
+    padding: 35px 20px;
+    .box {
+      display: flex;
+      flex-flow: column;
+      align-items: flex-start;
+      justify-content: center;
+      position: relative;
+      // margin: 0 -10px;
+      .img {
+        position: absolute;
+        top: -5px;
+        right: 0px;
+        cursor: pointer;
+      }
+      .head {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding-bottom: 15px;
+        img {
+          width: 85px;
+          height: 65px;
+          border: 1px solid #ebebeb;
+          box-sizing: border-box;
+          border-radius: 5px;
+        }
+        .detailOffer {
+          padding-left: 25px;
+          h3 {
+            font-style: normal;
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 22px;
+            text-align: start;
+            color: #092f57;
+            margin: 0;
+            padding-bottom: 5px;
+          }
+          p {
+            font-family: "Montserrat";
+            font-style: normal;
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 22px;
+            text-transform: uppercase;
+            color: #5fbfe2;
+          }
+        }
+      }
+      .para {
+        overflow: scroll;
+        max-height: 250px;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        &::-webkit-scrollbar {
+          display: none;
+        }
+        p {
+          text-align: start;
+        }
+      }
+      .bottom {
+        padding-top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        &.active {
+          // box-shadow: 0px -2px 8px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 -11px 5px -5px rgba(0, 0, 0, 0.15);
+        }
+      }
+      @media (max-width: 555px) {
+        width: 300px;
+      }
+      @media (max-width: 330px) {
+        width: 270px;
+      }
+    }
   }
   .modalForm {
     // width: 100% !important;
@@ -519,14 +654,14 @@ body {
         background-color: #eee;
       }
       .css-12jo7m5 {
-        font-family: "Raleway", sans-serif;
+        font-family: "Montserrat", sans-serif !important;
         color: #667c8a;
         font-size: 14px;
       }
       .dropped {
         width: 240px;
         .MuiInputBase-root {
-          font-family: "Raleway", sans-serif;
+          font-family: "Montserrat", sans-serif !important;
           font-style: normal;
           font-weight: normal;
           font-size: 15px;
@@ -589,7 +724,7 @@ body {
           line-height: 17px;
           margin: 0;
           color: #667c8a;
-          font-family: "Railway", sans-serif;
+          font-family: "Montserrat", sans-serif !important;
           font-style: normal;
           display: flex;
           align-items: center;
