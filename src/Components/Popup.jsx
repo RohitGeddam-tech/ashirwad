@@ -100,18 +100,18 @@ const Popup = ({ open, setOpen }) => {
   };
 
   React.useEffect(() => {
-    async function fetchData() {
-      await axios
-        .get(`${process.env.REACT_APP_PUBLIC_URL}test-offers?populate=*`)
-        .then((res) => {
-          // console.log(res.data.data);
-          // console.log("seleceetd: ", selected);
-          setRoomArray(res.data.data);
-        })
-        .catch((err) => console.warn(err));
+    if (roomArray.length === 0) {
+      if (localStorage.getItem("offers") !== null) {
+        const infoArray = localStorage.getItem("offers");
+        const info = JSON.parse(infoArray);
+        setRoomArray([...info]);
+      }
     }
-    fetchData();
-  }, []);
+  }, [roomArray]);
+
+  // React.useEffect(() => {
+  //   console.log("seleceetd: ", roomArray);
+  // }, [roomArray]);
 
   React.useEffect(() => {
     if (roomArray.length > 0) {

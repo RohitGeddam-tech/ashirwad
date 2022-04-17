@@ -70,9 +70,9 @@ function App() {
       await axios
         .get(`${process.env.REACT_APP_PUBLIC_URL}test-offers?populate=*`)
         .then((res) => {
-          // const info = res.data.data;
+          const info = res.data.data;
           // console.log("offers: ", info);
-          // localStorage.setItem("offers", JSON.stringify(info));
+          localStorage.setItem("offers", JSON.stringify(info));
           setOffer({ current: true, data: [res.data.data] });
           setError(false);
         })

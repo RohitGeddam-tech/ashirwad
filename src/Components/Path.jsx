@@ -24,6 +24,24 @@ const DeskPath = () => {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    if (localStorage.getItem("offers") === null) {
+      async function fetchData() {
+        await axios
+          .get(`${process.env.REACT_APP_PUBLIC_URL}test-offers?populate=*`)
+          .then((res) => {
+            const info = res.data.data;
+            // console.log("offers: ", info);
+            localStorage.setItem("offers", JSON.stringify(info));
+            // setOffer({ current: true, data: [res.data.data] });
+            setError(false);
+          })
+          .catch((err) => setError(true));
+      }
+      fetchData();
+    }
+  }, []);
+
   React.useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);

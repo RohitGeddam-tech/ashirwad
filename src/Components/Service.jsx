@@ -70,10 +70,10 @@ const Service = ({ data }) => {
                   <p>{doc.name}</p>
                 </div>
               ))}
-              <div className="box">
+              {/* <div className="box">
                 <img src={lung} alt="lungs" />
                 <p>Lungs</p>
-              </div>
+              </div> */}
             </CustomSlider>
           </div>
         ) : null}

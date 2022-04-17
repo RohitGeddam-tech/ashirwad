@@ -6,7 +6,7 @@ import "./About.scss";
 import { NavHashLink } from "react-router-hash-link";
 // import axios from "axios";
 
-const About = ({data}) => {
+const About = ({ data }) => {
   const [width] = useWindowSize();
   const array = data[0];
 
@@ -26,7 +26,7 @@ const About = ({data}) => {
         <>
           {array.length !== 0 ? (
             <>
-              <div className="container">
+              <div className="container" style={{ paddingBottom: "50px" }}>
                 <h2>{array.attributes.title}</h2>
                 <img
                   src={`https://api.aashirwadlab.co.in${array.attributes.image.data.attributes.url}`}
@@ -34,7 +34,7 @@ const About = ({data}) => {
                 />
                 <p>{array.attributes.description}</p>
                 <div className="bottom">
-                  <NavHashLink to="/About" className="btn">
+                  <NavHashLink to="/Aboutus" className="btn">
                     Read More
                   </NavHashLink>
                 </div>
@@ -60,7 +60,7 @@ const About = ({data}) => {
                   </h2>
                   <p>{array.attributes.description}</p>
                   <div className="bottom">
-                    <NavHashLink to="/About" className="btn">
+                    <NavHashLink to="/Aboutus" className="btn">
                       Read More
                     </NavHashLink>
                   </div>

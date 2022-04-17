@@ -3,8 +3,6 @@ import "./Offers.scss";
 import line from "../Photos/Line2.jpg";
 // import offer from "../Photos/offers2.jpg";
 import CustomSlider from "./Custom";
-// import axios from "axios";
-// import Popup from "./Popup";
 import {
   Modal,
   Select,
@@ -168,17 +166,19 @@ const Offers = ({ data }) => {
   };
 
   React.useEffect(() => {
-    async function fetchData() {
-      await axios
-        .get(`${process.env.REACT_APP_PUBLIC_URL}test-offers?populate=*`)
-        .then((res) => {
-          // console.log(res.data.data);
-          // console.log("seleceetd: ", selected);
-          setRoomArray(res.data.data);
-        })
-        .catch((err) => console.warn(err));
+    if (roomArray.length === 0) {
+      async function fetchData() {
+        await axios
+          .get(`${process.env.REACT_APP_PUBLIC_URL}test-offers?populate=*`)
+          .then((res) => {
+            // console.log(res.data.data);
+            // console.log("seleceetd: ", selected);
+            setRoomArray(res.data.data);
+          })
+          .catch((err) => console.warn(err));
+      }
+      fetchData();
     }
-    fetchData();
   }, []);
 
   React.useEffect(() => {

@@ -2,7 +2,7 @@
   background-color: #ebebeb;
   .container {
     width: 87%;
-    padding: 40px 0;
+    padding: 40px 0 60px;
     h2 {
       justify-content: center;
       padding-bottom: 40px;
@@ -20,12 +20,22 @@
       left: -10px;
       z-index: 1;
     }
-    // @media (max-width: 920px) {
-    //   .slickNext,
-    //   .slickPrev {
-    //     display: none !important;
-    //   }
-    // }
+    @media (max-width: 920px) {
+      .slickNext {
+        right: -30px;
+      }
+      .slickPrev {
+        left: -30px;
+      }
+    }
+    @media (max-width: 750px) {
+      .slickNext {
+        right: -10px;
+      }
+      .slickPrev {
+        left: -10px;
+      }
+    }
     .slick-slider {
       .slick-dots {
         bottom: -30px;

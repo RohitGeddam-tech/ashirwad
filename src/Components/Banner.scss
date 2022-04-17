@@ -30,9 +30,7 @@
   .slick-slide {
     // height: 570px !important;
     div {
-      &:focus {
-        outline: none !important;
-      }
+      outline: none !important;
     }
     img {
       display: initial !important;
@@ -90,9 +88,12 @@
       .banner {
         .bannerBox {
           width: 90%;
+          padding: 10px;
           h1 {
             padding: 20px 0;
             margin-bottom: 0;
+            font-size: 35px;
+            line-height: 170.6%;
           }
           p {
             font-size: 15px;
@@ -100,7 +101,7 @@
             margin: 0 auto;
             padding-bottom: 20px;
           }
-          .bottom{
+          .bottom {
             padding: 20px 0 30px;
           }
         }
