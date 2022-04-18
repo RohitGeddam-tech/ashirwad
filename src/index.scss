@@ -191,6 +191,7 @@ body {
       height: 33px !important;
     }
     &.slick-disabled {
+      opacity: .3;
       img {
         cursor: not-allowed;
       }
@@ -219,6 +220,7 @@ body {
       height: 33px !important;
     }
     &.slick-disabled {
+      opacity: .3;
       img {
         cursor: not-allowed;
         // filter: brightness(0) saturate(100%) invert(80%) sepia(29%)

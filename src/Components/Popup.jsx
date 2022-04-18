@@ -183,8 +183,15 @@ const Popup = ({ open, setOpen }) => {
           setName("");
           setEmail("");
           setPhone("");
+          setNameInvalid(false);
+          setSelectInvalid(false);
+          setEmailInvalid(false);
+          setPhoneInvalid(false);
+          setInvalid(false);
+          setValid(false);
           setSelected([]);
           setSelectData([]);
+          setDate(new Date());
           setOpen(false);
         }}
       >
@@ -199,8 +206,15 @@ const Popup = ({ open, setOpen }) => {
                   setName("");
                   setEmail("");
                   setPhone("");
+                  setNameInvalid(false);
+                  setSelectInvalid(false);
+                  setEmailInvalid(false);
+                  setPhoneInvalid(false);
+                  setInvalid(false);
+                  setValid(false);
                   setSelected([]);
                   setSelectData([]);
+                  setDate(new Date());
                   setOpen(false);
                 }}
               />
