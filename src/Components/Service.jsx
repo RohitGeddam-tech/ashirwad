@@ -1,12 +1,13 @@
 import React from "react";
 import "./Service.scss";
 import line from "../Photos/Line3.jpg";
-import lung from "../Photos/lung.svg";
+// import lung from "../Photos/lung.svg";
 // import axios from "axios";
 import CustomSlider from "./CustomSlider";
 
 const Service = ({ data }) => {
   const state = data[0];
+  console.log(data[0]);
 
   // useEffect(async () => {
   //   await axios
@@ -29,11 +30,12 @@ const Service = ({ data }) => {
           Service
           <img src={line} alt="line" />
         </h2>
+        {Object.keys(state).length > 0 ? <p>{state.attributes.description}</p> : 
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem
           ipsum dolor sit amet, consectetur adipiscing elit,.
-        </p>
+        </p>}
         {/* <div className="slider">
           <div className="slide">
             <div className="box">
