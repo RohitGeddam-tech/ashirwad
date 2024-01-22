@@ -38,6 +38,7 @@ const Popup = ({ open, setOpen }) => {
 
   const handleChange = (e) => {
     // setInvalid(false);
+    // console.log(e.target.name);
     switch (e.target.name) {
       case "name":
         setName(e.target.value);
@@ -82,7 +83,12 @@ const Popup = ({ open, setOpen }) => {
       setSelectInvalid(true);
     }
     if (
-      !(nameInvalid || phoneInvalid || emailInvalid || selected.length === 0)
+      !(
+        nameInvalid ||
+        phoneInvalid ||
+        emailInvalid ||
+        (selectedArray.length > 0 && selected.length === 0)
+      )
     ) {
       // console.log(
       //   "data: ",
@@ -99,15 +105,18 @@ const Popup = ({ open, setOpen }) => {
     }
   };
 
+  const [load, setLoad] = useState(false);
+
   React.useEffect(() => {
-    if (roomArray.length === 0) {
+    if (roomArray.length === 0 && !load) {
       if (localStorage.getItem("offers") !== null) {
         const infoArray = localStorage.getItem("offers");
         const info = JSON.parse(infoArray);
         setRoomArray([...info]);
+        setLoad(true);
       }
     }
-  }, [roomArray]);
+  }, [roomArray, load]);
 
   // React.useEffect(() => {
   //   console.log("seleceetd: ", roomArray);
@@ -127,35 +136,69 @@ const Popup = ({ open, setOpen }) => {
   }, [roomArray, setRoomArray]);
 
   React.useEffect(() => {
-    if (selectData.length > 0 && valid) {
-      const form = {
-        data: {
-          name: name,
-          mobile_number: phone,
-          email: email,
-          appointment_date: date.toISOString(),
-          test_offers: selected,
-        },
-      };
-      axios
-        .post(`${process.env.REACT_APP_PUBLIC_URL}appointments`, form)
-        .then((res) => {
-          // console.log(res);
-          setName("");
-          setEmail("");
-          setPhone("");
-          setSelected([]);
-          setSelectData([]);
-          setShow(true);
-          setOpen(false);
-          setValid(false);
-          setBtnLoading(false);
-        })
-        .catch((err) => {
-          console.warn(err);
-          setBtnLoading(false);
-          setInvalid(true);
-        });
+    // console.log(selectData, selectedArray);
+    if (selectedArray.length > 0) {
+      if (valid && selectData.length > 0) {
+        const form = {
+          data: {
+            name: name,
+            mobile_number: phone,
+            email: email,
+            appointment_date: date.toISOString(),
+            test_offers: selected,
+          },
+        };
+        axios
+          .post(`${process.env.REACT_APP_PUBLIC_URL}appointments`, form)
+          .then((res) => {
+            // console.log(res);
+            setName("");
+            setEmail("");
+            setPhone("");
+            setSelected([]);
+            setSelectData([]);
+            setShow(true);
+            setOpen(false);
+            setValid(false);
+            setBtnLoading(false);
+          })
+          .catch((err) => {
+            console.warn(err);
+            setBtnLoading(false);
+            setInvalid(true);
+          });
+      }
+    } else {
+      if (valid) {
+        const form = {
+          data: {
+            name: name,
+            mobile_number: phone,
+            email: email,
+            appointment_date: date.toISOString(),
+            test_offers: selected,
+          },
+        };
+        axios
+          .post(`${process.env.REACT_APP_PUBLIC_URL}appointments`, form)
+          .then((res) => {
+            // console.log(res);
+            setName("");
+            setEmail("");
+            setPhone("");
+            setSelected([]);
+            setSelectData([]);
+            setShow(true);
+            setOpen(false);
+            setValid(false);
+            setBtnLoading(false);
+          })
+          .catch((err) => {
+            console.warn(err);
+            setBtnLoading(false);
+            setInvalid(true);
+          });
+      }
     }
   }, [valid]);
 

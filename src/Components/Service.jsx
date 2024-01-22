@@ -7,7 +7,7 @@ import CustomSlider from "./CustomSlider";
 
 const Service = ({ data }) => {
   const state = data[0];
-  console.log(data[0]);
+  // console.log(data[0]);
 
   // useEffect(async () => {
   //   await axios
