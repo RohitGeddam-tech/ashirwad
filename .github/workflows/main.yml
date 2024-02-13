@@ -1,0 +1,26 @@
+name: Continuous Deployment
+
+on:
+  push:
+    branches:
+      - new
+
+jobs:
+  deployment:
+    runs-on: trial
+    steps:
+      - name: Checkout main branch
+        uses: actions/checkout@v2
+        with:
+          clean: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '16.x'
+
+      - name: Install dependencies
+        run: npm i --force
+
+      - name: Build application
+        run: CI=true npm run build
