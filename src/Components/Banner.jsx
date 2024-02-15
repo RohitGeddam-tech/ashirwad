@@ -14,7 +14,7 @@ const Banner1 = ({ image, attributes }) => {
     <div className="banner">
       <img src={image} alt="banner" loading="lazy" />
       <div className="bannerBox">
-        <h1>{attributes.title}</h1>
+        <h1>{attributes.title} trial</h1>
         <p>{attributes.description}</p>
         <div className="bottom">
           <button className="btn" onClick={() => setOpen(true)}>
